@@ -1,0 +1,30 @@
+{
+  "name": "tracey-cli",
+  "version": "0.0.1",
+  "description": "前端脚手架",
+  "main": "index.js",
+  "bin": {
+    "tc": "./bin/enter.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^9.4.0",
+    "figlet": "^1.5.2",
+    "inquirer": "^8.1.5",
+    "ora": "^5.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hk4114/tracey-cli.git"
+  },
+  "keywords": [],
+  "author": "hk4114",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hk4114/tracey-cli/issues"
+  },
+  "homepage": "https://github.com/hk4114/tracey-cli#readme"
+}

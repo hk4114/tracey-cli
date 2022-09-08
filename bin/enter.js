@@ -6,16 +6,22 @@ const packageInfo = require('../package');
 
 program.command('init')
   .description('创建一个新项目')
-  .alias('i')
   .action(() => {
     require('../command/init')()
   });
 
 program.command('ls')
   .description('展示模板项目列表')
-  .alias('l')
   .action(() => {
     require('../command/list')()
+  });
+
+// 更新项目 config 文件
+program
+  .command('update')
+  .description('更新packages版本')
+  .action(() => {
+    require('../command/update')()
   });
 
 program.on("--help", function () {

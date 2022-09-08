@@ -119,7 +119,15 @@ new Inquirer.prompt([
 });
 ```
 
+### 【下载模板】
+
+
+```json
+"publishConfig": {
+  "registry":  // 私有 npm 源地址
+}
+```
+
 参考资料：
 
 [战场小包 【前端架构必备】手摸手带你搭建一个属于自己的脚手架](https://juejin.cn/post/7077717940941881358)
-

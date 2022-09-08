@@ -1,0 +1,9 @@
+{
+  "templates": {
+    "custom-admin": {
+      "url": "https://github.com/hk4114/Custom-Admin.git",
+      "branch": "main",
+      "description": "react + antd + vite + ts 中后台项目模板"
+    }
+  }
+}

@@ -4,6 +4,20 @@ const chalk = require('chalk')
 const figlet = require('figlet')
 const packageInfo = require('../package');
 
+program.command('init')
+  .description('创建一个新项目')
+  .alias('i')
+  .action(() => {
+    require('../command/init')()
+  });
+
+program.command('ls')
+  .description('展示模板项目列表')
+  .alias('l')
+  .action(() => {
+    require('../command/list')()
+  });
+
 program.on("--help", function () {
   console.log(
     "\r\n" +

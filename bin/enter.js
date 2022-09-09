@@ -1,27 +1,22 @@
 #!/usr/bin/env node
 const { program } = require('commander');
-const chalk = require('chalk')
 const figlet = require('figlet')
+
+const { cyan } = require('../lib/utils');
 const packageInfo = require('../package');
 
-program.command('init')
+program.command('init <app-name>')
   .description('创建一个新项目')
-  .action(() => {
-    require('../command/init')()
+  .option('-f, --force', '如果目录存在则覆盖')
+  .option('-t, --template [url]', '指定git仓库作为模板')
+  .action((name, options) => {
+    require('../command/init')(name, options)
   });
 
 program.command('ls')
   .description('展示模板项目列表')
   .action(() => {
     require('../command/list')()
-  });
-
-// 更新项目 config 文件
-program
-  .command('update')
-  .description('更新packages版本')
-  .action(() => {
-    require('../command/update')()
   });
 
 program.on("--help", function () {
@@ -33,7 +28,7 @@ program.on("--help", function () {
   );
   console.log();
   console.log(
-    `Run ${chalk.cyan(
+    `Run ${cyan(
       packageInfo.name + " <command> --help"
     )} for detailed usage of given command.`
   );

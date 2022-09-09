@@ -1,10 +1,10 @@
 const config = require('../templates');
-const chalk = require('chalk');
+const { yellow, cyan } = require('../lib/utils')
 
 module.exports = () => {
   Object.keys(config.templates).forEach((item) => {
     const { description } = config.templates[item];
-    console.log(`${chalk.yellow(item)} : ${chalk.cyan(description)} \n`);
+    console.log(`${yellow(item, false)} : ${cyan(description, false)} \n`);
   });
   process.exit();
 }

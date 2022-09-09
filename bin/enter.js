@@ -7,7 +7,6 @@ const packageInfo = require('../package');
 
 program.command('init <app-name>')
   .description('创建一个新项目')
-  .option('-f, --force', '如果目录存在则覆盖')
   .option('-t, --template [url]', '指定git仓库作为模板')
   .action((name, options) => {
     require('../command/init')(name, options)

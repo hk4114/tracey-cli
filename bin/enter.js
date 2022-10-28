@@ -5,6 +5,8 @@ const figlet = require('figlet')
 const { cyan } = require('../lib/utils');
 const packageInfo = require('../package');
 
+program.version(packageInfo.version, '-v, --version');
+
 program.command('init <app-name>')
   .description('创建一个新项目')
   .option('-t, --template [url]', '指定git仓库作为模板')

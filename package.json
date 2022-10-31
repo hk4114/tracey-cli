@@ -9,6 +9,9 @@
   "scripts": {
     "tc-cli": "node bin/enter.js init"
   },
+  "dependencies": {
+    "execa": "^6.1.0"
+  },
   "devDependencies": {
     "chalk": "^4.1.2",
     "clear": "^0.1.0",
@@ -24,7 +27,9 @@
     "type": "git",
     "url": "git+https://github.com/hk4114/tracey-cli.git"
   },
-  "keywords": ["cli"],
+  "keywords": [
+    "cli"
+  ],
   "author": "hk4114",
   "license": "ISC",
   "bugs": {

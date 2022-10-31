@@ -20,6 +20,10 @@ tc init -t https://github.com/hk4114/Custom-Admin.git
 }
 ```
 
+## 开发目的
+- 拉取项目模板：整合了开发规范、部署环境、打包等
+
+
 ## 本地调试
 ```sh
 git clone https://github.com/hk4114/tracey-cli.git
@@ -29,7 +33,6 @@ npm link
 npm link --force
 ```
 
-
 ## 依赖包
 
 ### 样式
@@ -38,4 +41,4 @@ npm link --force
 - figlet 生成终端的艺术字
 
 ### 交互
-- inquirer
+- inquirer 提问

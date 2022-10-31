@@ -1,3 +1,7 @@
+const path = require('path')
+const inquirer = require('inquirer')
+const clear = require('clear');
+
 const { blue, loading } = require('../lib/utils')
 const inquirer = require('inquirer');
 

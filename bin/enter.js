@@ -4,29 +4,33 @@ const figlet = require('figlet')
 
 const { cyan } = require('../lib/utils');
 const packageInfo = require('../package');
+const create = require('../command/init');
+const test = require('../command/test');
 
 program.version(packageInfo.version, '-v, --version');
+
+program
+  .version(packageInfo.version)
+  .command('test <name>')
+  .description('测试命令')
+  .option('-t, --ts [params]', '测试参数')
+  .action((name, options) => {
+    // tc test app -t str
+    // app { ts: 'str' }
+    test(name, options)
+  });
 
 program.command('init <app-name>')
   .description('创建一个新项目')
   .option('-t, --template [url]', '指定git仓库作为模板')
   .action((name, options) => {
-    require('../command/init')(name, options)
+    create(name, options)
   });
 
 program.command('ls')
   .description('展示模板项目列表')
   .action(() => {
     require('../command/list')()
-  });
-
-program.command('test')
-  .description('测试命令')
-  .option('-d, --debug', 'output extra debugging')
-  .parse(process.argv)
-  .action((options) => {
-    console.log(options)
-    // require('../command/test')(name, options)
   });
 
 program.on("--help", function () {

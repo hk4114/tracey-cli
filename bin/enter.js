@@ -20,6 +20,15 @@ program.command('ls')
     require('../command/list')()
   });
 
+program.command('test')
+  .description('测试命令')
+  .option('-d, --debug', 'output extra debugging')
+  .parse(process.argv)
+  .action((options) => {
+    console.log(options)
+    // require('../command/test')(name, options)
+  });
+
 program.on("--help", function () {
   console.log(
     "\r\n" +

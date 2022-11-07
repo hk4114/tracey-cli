@@ -1,4 +1,3 @@
-/* eslint-disable max-classes-per-file */
 const path = require('path')
 const inquirer = require('inquirer')
 const clear = require('clear')
@@ -15,30 +14,27 @@ function getPromptModules() {
     'linter',
   ].map(file => require(`../lib/promptModules/${file}`))
 }
-
-class Creator {
-  constructor() {
-    this.featurePrompt = {
-      name: 'features',
-      message: 'Check the features needed for your project:',
-      pageSize: 10,
-      type: 'checkbox',
-      choices: [],
-    }
-    this.injectedPrompts = []
+function Creator() {
+  this.featurePrompt = {
+    name: 'features',
+    message: 'Check the features needed for your project:',
+    pageSize: 10,
+    type: 'checkbox',
+    choices: [],
   }
+  this.injectedPrompts = []
+}
 
-  getFinalPrompts() {
-    this.injectedPrompts.forEach(prompt => {
-      const originalWhen = prompt.when || (() => true)
-      prompt.when = answers => originalWhen(answers)
-    })
-    const prompts = [
-      this.featurePrompt,
-      ...this.injectedPrompts,
-    ]
-    return prompts
-  }
+Creator.prototype.getFinalPrompts = function () {
+  this.injectedPrompts.forEach(prompt => {
+    const originalWhen = prompt.when || (() => true)
+    prompt.when = answers => originalWhen(answers)
+  })
+  const prompts = [
+    this.featurePrompt,
+    ...this.injectedPrompts,
+  ]
+  return prompts
 }
 
 class PromptModuleAPI {

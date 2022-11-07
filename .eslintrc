@@ -21,7 +21,7 @@
     "comma-dangle": ["error", "always-multiline"],
     "semi": ["error", "never"],
     "object-curly-spacing": ["error", "always"],
-    "max-len": ["error", 140],
+    "max-len": ["error", 500],
     "no-new": "off",
     "linebreak-style": "off",
     "import/extensions": "off",

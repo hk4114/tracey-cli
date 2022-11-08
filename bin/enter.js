@@ -5,7 +5,7 @@ const figlet = require('figlet')
 const { cyan } = require('../lib/utils')
 const packageInfo = require('../package')
 const init = require('../command/init')
-const create = require('../command/create')
+const create = require('../lib/create')
 
 program.version(packageInfo.version, '-v, --version')
 

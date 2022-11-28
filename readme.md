@@ -1,4 +1,5 @@
 # tracey-cli
+
 ```sh
 # 查看版本号
 tc -v 
@@ -6,6 +7,11 @@ tc -v
 tc init <project name>
 # 指定下载模板
 tc init -t https://github.com/hk4114/Custom-Admin.git
+
+tc create <project name>
+# 查看模板项目列表
+tc ls
+# 
 ```
 
 发布（publish）到指定私有域 npm

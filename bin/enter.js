@@ -4,19 +4,10 @@ const figlet = require('figlet')
 
 const { cyan } = require('../lib/utils')
 const packageInfo = require('../package')
-const init = require('../command/init')
-const create = require('../lib/create')
+
+const create = require('../command/create')
 
 program.version(packageInfo.version, '-v, --version')
-
-program.command('init <app-name>')
-.description('创建一个新项目')
-.option('-t, --template [url]', '指定git仓库作为模板')
-.action((name, options) => {
-  // tc create app -t str
-  // app { ts: 'str' }
-  init(name, options)
-})
 
 program
 .version(packageInfo.version)

@@ -2,14 +2,15 @@ const fs = require('fs-extra')
 const chalk = require('chalk')
 const path = require('path')
 const inquirer = require('inquirer')
+
 const PromptModuleAPI = require('../lib/PromptModuleAPI')
 const Creator = require('../lib/Creator')
 const Generator = require('../lib/Generator')
-const clearConsole = require('../lib/utils/clearConsole')
-const { savePreset, rcPath } = require('../lib/utils/options')
-const { log } = require('../lib/utils/logger')
-const { saveOptions } = require('../lib/utils/options')
 const PackageManager = require('../lib/PackageManager')
+
+const clearConsole = require('../lib/utils/clearConsole')
+const { savePreset, rcPath, saveOptions } = require('../lib/utils/options')
+const { log } = require('../lib/utils/logger')
 
 async function create(name) {
   const targetDir = path.join(process.cwd(), name)
@@ -17,7 +18,7 @@ async function create(name) {
   if (fs.existsSync(targetDir)) {
     // 清空控制台
     clearConsole()
-        
+
     const { action } = await inquirer.prompt([
       {
         name: 'action',

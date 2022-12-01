@@ -7,7 +7,7 @@
     "tc": "./bin/enter.js"
   },
   "scripts": {
-    "tc-cli": "node bin/enter.js init"
+    "tc-cli": "node bin/enter.js create"
   },
   "dependencies": {
     "chalk": "^4.1.2",

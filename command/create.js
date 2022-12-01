@@ -10,7 +10,7 @@ const PackageManager = require('../lib/PackageManager')
 
 const clearConsole = require('../lib/utils/clearConsole')
 const { savePreset, rcPath, saveOptions } = require('../lib/utils/options')
-const { log } = require('../lib/utils/logger')
+const remove = require('../lib/utils/remove')
 
 async function create(name) {
   const targetDir = path.join(process.cwd(), name)
@@ -33,7 +33,7 @@ async function create(name) {
 
     if (action === 'overwrite') {
       console.log(`\nRemoving ${chalk.cyan(targetDir)}...`)
-      await fs.remove(targetDir)
+      await remove(targetDir)
     }
   }
 
@@ -63,8 +63,8 @@ async function create(name) {
   }
 
   if (answers.save && answers.saveName && savePreset(answers.saveName, answers)) {
-    log()
-    log(`Preset ${chalk.yellow(answers.saveName)} saved in ${chalk.yellow(rcPath)}`)
+    console.log()
+    console.log(`Preset ${chalk.yellow(answers.saveName)} saved in ${chalk.yellow(rcPath)}`)
   }
 
   const pm = new PackageManager(targetDir, answers.packageManager)
@@ -91,9 +91,9 @@ async function create(name) {
 
   // 下载依赖
   await pm.install()
-  log('\n依赖下载完成! 执行下列命令开始开发：\n')
-  log(`cd ${name}`)
-  log(`${pm.bin === 'npm'? 'npm run' : 'yarn'} dev`)
+  console.log('\n依赖下载完成! 执行下列命令开始开发：\n')
+  console.log(`cd ${name}`)
+  console.log(`${pm.bin === 'npm'? 'npm run' : 'yarn'} dev`)
 }
 
 function getPromptModules() {

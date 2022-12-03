@@ -6,6 +6,7 @@ const { cyan } = require('../lib/utils')
 const packageInfo = require('../package')
 
 const create = require('../command/create')
+const init = require('../command/init')
 
 program.version(packageInfo.version, '-v, --version')
 
@@ -15,6 +16,13 @@ program
 .description('create a new project')
 .action(name => {
   create(name)
+})
+
+program.command('init <app-name>')
+.description('创建一个新项目')
+.option('-t, --template [url]', '指定git仓库作为模板')
+.action((name, options) => {
+  init(name, options)
 })
 
 program.command('ls')

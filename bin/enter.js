@@ -7,28 +7,34 @@ const packageInfo = require('../package')
 
 const create = require('../command/create')
 const init = require('../command/init')
+const list = require('../command/list')
 
+// 查看版本
 program.version(packageInfo.version, '-v, --version')
 
+// 查看模板列表
+program.command('ls')
+.description('展示模板项目列表')
+.action(() => {
+  list()
+})
+
+// 自己写的命令
+program.command('init <app-name>')
+.description('创建一个新项目')
+.option('-t, --template [url]', '指定git仓库作为模板')
+.action((name, options) => {
+  console.log(name, options)
+  // init(name, options)
+})
+
+// 别人写的生成命令
 program
 .version(packageInfo.version)
 .command('create <name>')
 .description('create a new project')
 .action(name => {
   create(name)
-})
-
-program.command('init <app-name>')
-.description('创建一个新项目')
-.option('-t, --template [url]', '指定git仓库作为模板')
-.action((name, options) => {
-  init(name, options)
-})
-
-program.command('ls')
-.description('展示模板项目列表')
-.action(() => {
-  require('../command/list')()
 })
 
 program.on('--help', () => {

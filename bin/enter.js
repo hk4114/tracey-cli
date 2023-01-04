@@ -24,8 +24,7 @@ program.command('init <app-name>')
 .description('创建一个新项目')
 .option('-t, --template [url]', '指定git仓库作为模板')
 .action((name, options) => {
-  console.log(name, options)
-  // init(name, options)
+  init(name, options)
 })
 
 // 别人写的生成命令
